@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        
+        <!-- Popper JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    
+        <script type="text/javascript">
+            function populate(s1,s2){
+                var s1= document.getElementById(s1);
+                var s2= document.getElementById(s2)
+                s2.innerHTML = "";
+                if(s1.value == "Karnatka"){
+                    var optionArray = ["|","bengaluru|Bengaluru","mysore|Mysore","belgaum|Belgaum"];
+                    
+                } else if(s1.value == "TamilNadu"){
+                    var optionArray = ["|","chennai|Chennai","ooty|Ooty","madurai|Madurai"];
+                    
+                } else if(s1.value == "Maharashtra"){
+                    var optionArray = ["|","mumbai|Mumbai","pune|Pune","nagpur|Nagpur"];
+                    
+                }
+                for(var option in optionArray){
+                    var pair = optionArray[option].split("|");
+                    var newOption = document.createElement("option");
+                    newOption.value = pair[0];
+                    newOption.innerHTML = pair[1];
+                    s2.options.add(newOption);
+                }
+            }
+            function validation(){
+            var firstName = document.getElementById('firstName').value;
+            var lastName = document.getElementById('lastName').value;
+            var age = document.getElementById('age').value;
+            var salary = document.getElementById('salary').value;
+            
+
+            if(firstName== ""){
+                document.getElementById('FName').innerHTML= "** please enter your First Name";
+                return false;
+              }
+              
+              if(lastName== ""){
+                document.getElementById('LName').innerHTML= "** please enter your Last Name";
+                return false;
+              }
+
+              if(isNaN(age)){
+                document.getElementById('Age').innerHTML= "** please enter number";
+                return false;
+              }
+              if(age== ""){
+                document.getElementById('Age').innerHTML= "** please enter your the age";
+                return false;
+              }
+              if(isNaN(salary)){
+                document.getElementById('Salary').innerHTML= "** please enter number";
+                return false;
+              }
+              if(salary== ""){
+                document.getElementById('Salary').innerHTML= "** please enter your the salary";
+                return false;
+              }
+              
+            }
+            </script>
+    
+    
+    </head>
+    <body>
+        <div class="container"><br>
+            <h1 class="text-success text-center">Employee registration form</h1>
+            <div class="col-lg-8 m-auto d-block">
+                    <form action="AddEmployee" onsubmit="return validation()">
+                    
+                <div class="form-group">
+                <label>FirstName :</label><br>
+                <input type="text" name="firstName" class="form-control" id="firstName" placeholder="Enter your firstName">
+                <span id="FName" class="text-danger font-weight-bold"> </span>    
+                </div>
+
+                <div class="form-group">
+                        <label>LastName :</label><br>
+                        <input type="text" name="lastName" class="form-control" id="lastName" placeholder="Enter your lastName">
+                        <span id="LName" class="text-danger font-weight-bold"> </span>
+                </div>
+
+                <div class="form-group">
+                        <label>Age :</label><br>
+                        <input type="number" name="age" id="age" min="" max="" placeholder="Enter age"></input>
+                        <span id="Age" class="text-danger font-weight-bold"> </span>
+                </div>
+
+                <div class="form-group">
+                        <label>Salary :</label><br>
+                        <input type="number" name="salary" id="salary" min="" max="" placeholder="Enter salary"></input>
+                        <span id="Salary" class="text-danger font-weight-bold"> </span>
+                </div>
+
+                <div class="form-group">
+                        <label>Gender :</label><br>
+                        <input type="radio" name="gender" id="gender" value="Male" size="14">Male
+                        <input type="radio" name="gender" id="gender" value="Female" size="14">Female
+                        <span id="Gender" class="text-danger font-weight-bold"> </span>
+                </div>
+
+                <div class="form-group">
+                        <label>Department :</label><br>
+                        <select name="department" required>
+      
+                                <option value="-1" selected>select..</option>
+                              
+                                <option value="SWG">SWG</option>
+                              
+                                <option value="IT">IT</option>
+                              
+                                <option value="Finance">Finance</option>
+                              
+                        </select>
+                </div>
+
+                <div class="form-group">
+                        <label>State :</label><br>
+                        <select id="select1" name="state" required onchange="populate(this.id,'select2')">
+                                <option value="-1" selected>select..</option>
+                                <option value="Karnatka">Karnatka</option>
+                                <option value="TamilNadu">TamilNadu</option>
+                                <option value="Maharashtra">Maharashtra</option>
+                        
+                       </select>
+                </div>
+
+                <div class="form-group">
+                        <label>City :</label><br>
+                        <select id="select2" name="city" required></select>
+                </div>
+
+                <div class="form-group">
+                        <label>Skills :</label><br>
+                        <input type="checkbox" name="skills" value="Java" required>
+                        <label for="java">Java</label>
+      
+                        <input type="checkbox" name="skills" value="J2ee">
+                        <label for="java">J2ee</label>
+      
+                        <input type="checkbox" name="skills" value="Spring">
+                        <label for="java">Spring</label>
+      
+                        <input type="checkbox" name="skills" value="Sql">
+                        <label for="java">Sql</label>
+                </div>
+                
+                <div class="form-group">
+                        <label>Address :</label><br>
+                        <textarea rows="4" cols="50" name = "address" placeholder="Enter Address" required>
+                        </textarea>
+                </div>
+
+                <input type="submit" name="submit" value="submit" class="btn btn-success"/>
+            </form>
+            </div>
+
+        </div>
+
+    </body>
+</html>

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+        <script type="text/javascript">
+            function populate(s1,s2){ 
+                var s1= document.getElementById(s1);
+                   var s2= document.getElementById(s2)
+                   s2.innerHTML = "";
+                     if(s1.value == "Karnatka"){
+                         var optionArray = ["|","bengaluru|Bengaluru","mysore|Mysore","belgaum|Belgaum"]; 
+                          
+                     } else if(s1.value == "TamilNadu"){
+                        var optionArray = ["|","chennai|Chennai","ooty|Ooty","madurai|Madurai"];
+                        
+                     } else if(s1.value == "Maharashtra"){
+                         var optionArray = ["|","mumbai|Mumbai","pune|Pune","nagpur|Nagpur"];
+          
+             }
+                    for(var option in optionArray){
+                          var pair = optionArray[option].split("|");
+                         var newOption = document.createElement("option"); 
+                         newOption.value = pair[0]; 
+                        newOption.innerHTML = pair[1];
+                        s2.options.add(newOption);
+                     } 
+                  } 
+                 </script>
+    
+  </head>
+
+  <body bgcolor = "cyan">
+
+  <form action="AddEmployee">
+
+  <table cellpadding="2" width="40%" bgcolor="cyan" align="center"
+
+  cellspacing="2">
+
+
+<tr>
+
+  <td colspan=2>
+
+  <center><font size=6><b>Employee Registration Form</b></font></center>
+
+  </td>
+
+</tr>
+
+
+<tr>
+
+  <td><b>First Name</b></td>
+
+  <td><input type=text name="firstName" id="firstName" size="50" placeholder="Enter your firstName" required></td>
+
+</tr>
+
+
+<tr>
+
+  <td><b>Last Name</b></td>
+
+  <td><input type="text" name="lastName" id="lastName" size="50"placeholder="Enter your lastName"></td>
+
+</tr>
+
+
+<tr>
+
+  <td><b>Age</b></td>
+
+  <td><input type="number" name="age" min="" max=""placeholder="Enter your age" required></td>
+
+</tr>
+
+
+<tr>
+
+  <td><b>Salary</b></td>
+
+  <td><input type="number" name="salary" min="" max=""placeholder="Enter your salary" required></td>
+
+</tr>
+
+
+<tr>
+
+  <td><b>Gender</b></td>
+
+  <td>
+  <input type="radio" name="gender" value="Male" size="14">Male
+
+  <input type="radio" name="gender" value="Female" size="14">Female
+  </td>
+
+</tr>
+
+
+<tr>
+
+  <td><b>Department</b></td>
+
+  <td><select name="department">
+
+  <option value="-1" selected>select..</option>
+
+  <option value="SWG">SWG</option>
+
+  <option value="IT">IT</option>
+
+  <option value="Finance">Finance</option>
+
+  </select></td>
+
+</tr>
+
+
+<tr>       
+     <td><b>State</b></td>
+              
+        <td> <select id="select1" name="state" onchange="populate(this.id,'select2')">
+                    <option value="">State</option>
+                    <option value="Karnatka">Karnatka</option> 
+                    <option value="TamilNadu">TamilNadu</option>
+                    <option value="Maharashtra">Maharashtra</option> 
+            
+        </select></td> 
+               
+</tr>
+
+
+<tr> 
+					      
+        <td><b>City</b></td> 
+      
+        <td><select id="select2" name="city">City</select></td> 
+      
+      </tr> 
+
+
+<tr>
+
+  <td><b>Skill</b></td>
+
+  <td>
+  <input type="checkbox" name="skills" value="Java">
+  <label for="java">Java</label>
+
+  <input type="checkbox" name="skills" value="J2ee">
+  <label for="java">J2ee</label>
+
+  <input type="checkbox" name="skills" value="Spring">
+  <label for="java">Spring</label>
+
+  <input type="checkbox" name="skills" value="Sql">
+  <label for="java">Sql</label>
+  </td>
+
+</tr> 
+
+
+<tr>
+
+  <td><b>Address</b></td>
+
+  <td>
+  <textarea rows="4" cols="50" name = "address"placeholder="Enter your address">
+  </textarea>
+  </td>
+
+</tr>
+
+
+<tr>
+
+  <td colspan=center><input type="submit" value="Save"/></td>
+
+  <td><input type="reset" value="clear"></td>
+
+</tr>
+
+  </table>
+
+  </form>
+
+  </body>
+
+  </html>
